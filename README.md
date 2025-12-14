@@ -827,13 +827,14 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 > PC Regional berhasil melakukan ping ke Default Gateway, menandakan koneksi lokal di Kantor Cabang berfungsi normal.
 
 ### 9.5 Testing OSPF Routing
-- PC Pembinaan (Gedung Utama) → PC Keuangan (ARA)
 - PC Pendidikan (Gedung Utama) → PC Regional Office (Cabang)
 - PC Auditorium (ARA) → PC Sarpras (Gedung Utama)
 
-<img width="1012" height="653" alt="Image" src="https://github.com/user-attachments/assets/bcbcc3a2-9b32-4819-ad3f-f4b8e009ebe5" />
+<img width="623" height="457" alt="image" src="https://github.com/user-attachments/assets/a6205238-254c-419b-afaf-b8e5b12d302c" />
 
-Gambar di atas menunjukkan Tabel Routing pada Router Gedung Utama. Terlihat kode 'O' yang menandakan rute ke Gedung ARA Tech (10.0.x.x) dipelajari melalui protokol OSPF.
+<img width="659" height="451" alt="image" src="https://github.com/user-attachments/assets/c552b252-10e4-4fad-99e7-c9eccdd2a968" />
+
+>Ping sukses antar gedung yang berbeda subnet membuktikan protokol OSPF telah berhasil merutekan paket ke seluruh jaringan enterprise.
 
 ### 9.6 Testing Router-to-Router
 - PC Kurikulum (Gedung Utama) → Router ARA Tech
