@@ -21,7 +21,7 @@ Yayasan ARA merupakan organisasi yang membawahi berbagai unit kerja pendidikan d
 
 ## 1. Topologi Jaringan
 
-<img width="1412" height="662" alt="Image" src="https://github.com/user-attachments/assets/b63cd098-b698-4ad2-b2a2-3676b5aa5e07" />
+<img width="1280" height="502" alt="Image" src="https://github.com/user-attachments/assets/45d99346-6104-4471-bd00-e03a3b81a7e1" />
 
 ### 1.1 Struktur Jaringan
 
