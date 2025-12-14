@@ -837,7 +837,6 @@ Gambar di atas menunjukkan Tabel Routing pada Router Gedung Utama. Terlihat kode
 ### 9.6 Testing Router-to-Router
 - PC Kurikulum (Gedung Utama) → Router ARA Tech
 - PC Rnd (ARA) → Router Gedung Utama
-- PC Sales (ARA) → Router Gedung Cabang
 
 <img width="612" height="290" alt="image" src="https://github.com/user-attachments/assets/5c310d04-b7bd-42f8-a065-2862e99e2b24" />
 
@@ -847,8 +846,10 @@ Gambar di atas menunjukkan Tabel Routing pada Router Gedung Utama. Terlihat kode
 
 ### 9.7 Testing Internet Access (NAT)
 - Router → Internet (ping 8.8.8.8)
-- PC SDM (Gedung Utama) → Internet
-- PC CustService (ARA) → Internet
+- PC Kurikulum (Gedung Utama) → Internet
+
+<img width="704" height="201" alt="image" src="https://github.com/user-attachments/assets/d5df27f3-384d-4d80-9cfe-5b5dae75dc42" />
+
 
 <img width="771" height="489" alt="Image" src="https://github.com/user-attachments/assets/9020fbe9-4740-4df1-894a-44d85bb868ce" />
 
