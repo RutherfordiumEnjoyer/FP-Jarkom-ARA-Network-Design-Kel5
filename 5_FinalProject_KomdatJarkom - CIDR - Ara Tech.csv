@@ -1,0 +1,24 @@
+TABEL SUBNETTING 3A,,,,,,,,
+Kode,Area (Gabungan Unit),Total Host Asli,#NAME?,Block Size,Prefix,Network ID,Range IP Usable,Broadcast Address
+A1,"Lantai 1
+
+(IT Supp, Cyber, Svr Room)",45+22+12 = 79,95,128,/25,10.0.0.0,10.0.0.1 - 10.0.0.126,10.0.0.127
+A2,"Lantai 2
+
+(Mkt, Sales, HR)",35+25+25 = 85,102,128,/25,10.0.0.128,10.0.0.129 - 10.0.0.254,10.0.0.255
+A3,"Lantai 3
+
+(R&D, Ppl Dev)",55+5(svr)+18 = 78,94,128,/25,10.0.1.0,10.0.1.1 - 10.0.1.126,10.0.1.127
+A4,"Lantai 4
+
+(Keu, Legal, CS)",28+18+40 = 86,104,128,/25,10.0.1.128,10.0.1.129 - 10.0.1.254,10.0.1.255
+A5,"Lantai 5
+
+(Audit, Lounge, Exec)",15+10+12 = 37,45,64,/26,10.0.2.0,10.0.2.1 - 10.0.2.62,10.0.2.63
+,,,,,,,,
+Tabel Supernetting / Aggregation (Level B),,,,,,,,
+Kode,Network Aggregation (CIDR Block),Prefix Baru,Range IP Total,Penjelasan Singkat,,,,
+B2,Gedung ARA Tech (Total),10.0.0.0,/22,10.0.0.1 - 10.0.3.254,,,,
+,,,,,,,,
+PENJELASAN SINGKAT TERKAIT PENGGABUNGAN,,,,,,,,
+"Subnet ini menggabungkan seluruh unit kerja di Lantai 1 s.d. Lantai 5 (A1-A5).Alasan Pemilihan Prefix: Total kebutuhan IP host dari seluruh lantai melebihi 512 alamat (batas maksimal /23), sehingga network diperluas menjadi /22 (kapasitas 1024 host) untuk skalabilitas.Terkait Koneksi Antar-Switch: Jalur koneksi dari Core Switch ke Switch Lantai tidak dibuatkan subnet terpisah (A6, dst) dan langsung melebur ke dalam topologi ini. Hal ini karena koneksi tersebut berfungsi sebagai Trunk (Layer 2) yang hanya bertugas melewatkan data, sehingga tidak membutuhkan Network ID atau alokasi IP sendiri.",,,,,,,,
