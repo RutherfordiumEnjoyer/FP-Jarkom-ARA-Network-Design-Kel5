@@ -801,7 +801,9 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 
 ### 9.2 Testing Konektivitas Lokal (Gedung Utama)
 - PC0 SDM → Router (Default Gateway)
-- PC0 SDM → PC5 LAYANAN_OPS
+- PC Marketing → PC Keuangan
+
+<img width="577" height="277" alt="image" src="https://github.com/user-attachments/assets/3c14698e-a389-45ab-94e7-2dc081af847d" />
 
 <img width="999" height="732" alt="Image" src="https://github.com/user-attachments/assets/a76b9481-50ba-4858-9f21-cd2a359c00f1" />
 
@@ -812,7 +814,6 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 - PC Legal → PC Marketing
 
 <img width="668" height="450" alt="image" src="https://github.com/user-attachments/assets/83af3448-26db-45ee-80aa-89b41bfedfb6" />
-
 
 <img width="629" height="450" alt="image" src="https://github.com/user-attachments/assets/55cd334f-9835-46ac-9448-9f7a95b05d5c" />
 
