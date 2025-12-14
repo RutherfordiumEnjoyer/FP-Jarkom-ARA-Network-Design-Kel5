@@ -49,6 +49,8 @@ Gedung Utama terhubung ke ISP melalui interface Serial0/3/1 dengan implementasi 
 | 172.16.4.192 | 255.255.255.224 | /27 | 172.16.4.223 | 172.16.4.193 - 172.16.4.222 | 32 | PEMBINAAN (18→22 host) | ~22% |
 | 172.16.4.224 | 255.255.255.240 | /28 | 172.16.4.239 | 172.16.4.225 - 172.16.4.238 | 16 | IT_PEND (6→8 host) | ~33% |
 
+> Atau bisa langsung diakses pada file [Source 1.xlsx](https://github.com/RutherfordiumEnjoyer/FP-Jarkom-ARA-Network-Design-Kel5/raw/main/Source%201.xlsx)
+
 ### 2.2 VLAN Assignment
 
 - **VLAN 10** - SDM
@@ -71,6 +73,8 @@ Gedung Utama terhubung ke ISP melalui interface Serial0/3/1 dengan implementasi 
 | A3 | 10.0.1.0 | 255.255.255.128 | /25 | 10.0.1.127 | 10.0.1.1 - 10.0.1.126 | 128 | 78→94 | LANTAI_3 (R&D, Ppl Dev) |
 | A4 | 10.0.1.128 | 255.255.255.128 | /25 | 10.0.1.255 | 10.0.1.129 - 10.0.1.254 | 128 | 86→104 | LANTAI_4 (Keu, Legal, CS) |
 | A5 | 10.0.2.0 | 255.255.255.192 | /26 | 10.0.2.63 | 10.0.2.1 - 10.0.2.62 | 64 | 37→45 | LANTAI_5 (Audit, Lounge, Exec) |
+
+> Atau bisa langsung diakses pada file [Source 1.xlsx](https://github.com/RutherfordiumEnjoyer/FP-Jarkom-ARA-Network-Design-Kel5/raw/main/Source%201.xlsx)
 
 ### 3.2 Detail per Lantai
 
@@ -795,6 +799,10 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 - PC0 SDM → Router (Default Gateway)
 - PC0 SDM → PC5 LAYANAN_OPS
 
+<img width="999" height="732" alt="Image" src="https://github.com/user-attachments/assets/a76b9481-50ba-4858-9f21-cd2a359c00f1" />
+
+Melakukan test ping menggunakan command prompt pada CPT.
+
 ### 9.3 Testing Konektivitas Lokal (ARA Tech)
 - PC Server Room → Router (Default Gateway)
 - PC Legal → PC Marketing
@@ -807,6 +815,10 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 - PC Pendidikan (Gedung Utama) → PC Regional Office (Cabang)
 - PC Auditorium (ARA) → PC Sarpras (Gedung Utama)
 
+<img width="1012" height="653" alt="Image" src="https://github.com/user-attachments/assets/bcbcc3a2-9b32-4819-ad3f-f4b8e009ebe5" />
+
+Gambar di atas menunjukkan Tabel Routing pada Router Gedung Utama. Terlihat kode 'O' yang menandakan rute ke Gedung ARA Tech (10.0.x.x) dipelajari melalui protokol OSPF.
+
 ### 9.6 Testing Router-to-Router
 - PC Kurikulum (Gedung Utama) → Router ARA Tech
 - PC Rnd (ARA) → Router Gedung Utama
@@ -817,11 +829,21 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 - PC SDM (Gedung Utama) → Internet
 - PC CustService (ARA) → Internet
 
+<img width="771" height="489" alt="Image" src="https://github.com/user-attachments/assets/9020fbe9-4740-4df1-894a-44d85bb868ce" />
+
+Membuktikan PC Client bisa secara langsung melakukan ping ke 8.8.8.8
+
 ### 9.8 Testing GRE Tunnel
 - Status Tunnel0 (up/up) di kedua router
 - Ping antar router melalui tunnel (10.10.10.1 ↔ 10.10.10.2)
 - PC SDM (Gedung Utama) → PC Regional (Cabang)
 - PC Regional (Cabang) → PC SDM (Gedung Utama)
+
+<img width="620" height="401" alt="Image" src="https://github.com/user-attachments/assets/6e9655a9-aa9d-4cea-a3ee-99b2030a32c5" />
+
+Terlihat pada hop ke-2, paket melewati IP 10.10.10.2. Ini adalah IP Address interface Tunnel pada Router Cabang.
+
+> *Screenshot detail dapat dilihat pada file [Source 2.pdf](https://github.com/RutherfordiumEnjoyer/FP-Jarkom-ARA-Network-Design-Kel5/raw/main/Source%202.pdf)*
 
 ### 9.9 Verifikasi Routing Table
 ```cisco
