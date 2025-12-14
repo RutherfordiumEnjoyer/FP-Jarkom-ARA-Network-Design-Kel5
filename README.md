@@ -813,12 +813,17 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 
 <img width="668" height="450" alt="image" src="https://github.com/user-attachments/assets/83af3448-26db-45ee-80aa-89b41bfedfb6" />
 
+
 <img width="629" height="450" alt="image" src="https://github.com/user-attachments/assets/55cd334f-9835-46ac-9448-9f7a95b05d5c" />
 
 > Hasil ping menunjukkan konektivitas sukses dari PC Server Room ke Gateway dan komunikasi antar departemen (Legal ke Marketing) berhasil dilakukan melalui Inter-VLAN Routing.
 
 ### 9.4 Testing Konektivitas Lokal (Kantor Cabang)
 - PC Regional → Router (Default Gateway)
+
+<img width="690" height="517" alt="image" src="https://github.com/user-attachments/assets/546921e5-b13f-4288-844f-17d7979dc1d3" />
+
+> PC Regional berhasil melakukan ping ke Default Gateway, menandakan koneksi lokal di Kantor Cabang berfungsi normal.
 
 ### 9.5 Testing OSPF Routing
 - PC Pembinaan (Gedung Utama) → PC Keuangan (ARA)
@@ -833,6 +838,12 @@ Gambar di atas menunjukkan Tabel Routing pada Router Gedung Utama. Terlihat kode
 - PC Kurikulum (Gedung Utama) → Router ARA Tech
 - PC Rnd (ARA) → Router Gedung Utama
 - PC Sales (ARA) → Router Gedung Cabang
+
+<img width="612" height="290" alt="image" src="https://github.com/user-attachments/assets/5c310d04-b7bd-42f8-a065-2862e99e2b24" />
+
+<img width="606" height="452" alt="image" src="https://github.com/user-attachments/assets/9388964c-cbf9-432b-9bcb-383242916bb3" />
+
+> Pengujian dua arah (Gedung Utama ke ARA Tech dan sebaliknya) menunjukkan hasil "Reply". Ini memvalidasi stabilitas koneksi OSPF antar router gateway.
 
 ### 9.7 Testing Internet Access (NAT)
 - Router → Internet (ping 8.8.8.8)
