@@ -795,17 +795,27 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 - PC dikonfigurasi untuk mendapatkan IP via DHCP
 - Desktop > IP Configuration > DHCP
 
+<img width="868" height="376" alt="image" src="https://github.com/user-attachments/assets/959ce40d-2693-4e87-84ea-b7cf55e9cb2e" />
+
+> PC berhasil mendapatkan IP, Subnet Mask, dan Gateway secara otomatis dari Router.
+
 ### 9.2 Testing Konektivitas Lokal (Gedung Utama)
 - PC0 SDM → Router (Default Gateway)
 - PC0 SDM → PC5 LAYANAN_OPS
 
 <img width="999" height="732" alt="Image" src="https://github.com/user-attachments/assets/a76b9481-50ba-4858-9f21-cd2a359c00f1" />
 
-Melakukan test ping menggunakan command prompt pada CPT.
+> Melakukan test ping menggunakan command prompt pada CPT.
 
 ### 9.3 Testing Konektivitas Lokal (ARA Tech)
 - PC Server Room → Router (Default Gateway)
 - PC Legal → PC Marketing
+
+<img width="668" height="450" alt="image" src="https://github.com/user-attachments/assets/83af3448-26db-45ee-80aa-89b41bfedfb6" />
+
+<img width="629" height="450" alt="image" src="https://github.com/user-attachments/assets/55cd334f-9835-46ac-9448-9f7a95b05d5c" />
+
+> Hasil ping menunjukkan konektivitas sukses dari PC Server Room ke Gateway dan komunikasi antar departemen (Legal ke Marketing) berhasil dilakukan melalui Inter-VLAN Routing.
 
 ### 9.4 Testing Konektivitas Lokal (Kantor Cabang)
 - PC Regional → Router (Default Gateway)
