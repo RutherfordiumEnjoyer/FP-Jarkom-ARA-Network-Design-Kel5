@@ -788,40 +788,40 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 ## 9. Verifikasi dan Testing
 
 ### 9.1 Testing DHCP
-✅ PC dikonfigurasi untuk mendapatkan IP via DHCP
+- PC dikonfigurasi untuk mendapatkan IP via DHCP
 - Desktop > IP Configuration > DHCP
 
 ### 9.2 Testing Konektivitas Lokal (Gedung Utama)
-✅ PC0 SDM → Router (Default Gateway)
-✅ PC0 SDM → PC5 LAYANAN_OPS
+- PC0 SDM → Router (Default Gateway)
+- PC0 SDM → PC5 LAYANAN_OPS
 
 ### 9.3 Testing Konektivitas Lokal (ARA Tech)
-✅ PC Server Room → Router (Default Gateway)
-✅ PC Legal → PC Marketing
+- PC Server Room → Router (Default Gateway)
+- PC Legal → PC Marketing
 
 ### 9.4 Testing Konektivitas Lokal (Kantor Cabang)
-✅ PC Regional → Router (Default Gateway)
+- PC Regional → Router (Default Gateway)
 
 ### 9.5 Testing OSPF Routing
-✅ PC Pembinaan (Gedung Utama) → PC Keuangan (ARA)
-✅ PC Pendidikan (Gedung Utama) → PC Regional Office (Cabang)
-✅ PC Auditorium (ARA) → PC Sarpras (Gedung Utama)
+- PC Pembinaan (Gedung Utama) → PC Keuangan (ARA)
+- PC Pendidikan (Gedung Utama) → PC Regional Office (Cabang)
+- PC Auditorium (ARA) → PC Sarpras (Gedung Utama)
 
 ### 9.6 Testing Router-to-Router
-✅ PC Kurikulum (Gedung Utama) → Router ARA Tech
-✅ PC Rnd (ARA) → Router Gedung Utama
-✅ PC Sales (ARA) → Router Gedung Cabang
+- PC Kurikulum (Gedung Utama) → Router ARA Tech
+- PC Rnd (ARA) → Router Gedung Utama
+- PC Sales (ARA) → Router Gedung Cabang
 
 ### 9.7 Testing Internet Access (NAT)
-✅ Router → Internet (ping 8.8.8.8)
-✅ PC SDM (Gedung Utama) → Internet
-✅ PC CustService (ARA) → Internet
+- Router → Internet (ping 8.8.8.8)
+- PC SDM (Gedung Utama) → Internet
+- PC CustService (ARA) → Internet
 
 ### 9.8 Testing GRE Tunnel
-✅ Status Tunnel0 (up/up) di kedua router
-✅ Ping antar router melalui tunnel (10.10.10.1 ↔ 10.10.10.2)
-✅ PC SDM (Gedung Utama) → PC Regional (Cabang)
-✅ PC Regional (Cabang) → PC SDM (Gedung Utama)
+- Status Tunnel0 (up/up) di kedua router
+- Ping antar router melalui tunnel (10.10.10.1 ↔ 10.10.10.2)
+- PC SDM (Gedung Utama) → PC Regional (Cabang)
+- PC Regional (Cabang) → PC SDM (Gedung Utama)
 
 ### 9.9 Verifikasi Routing Table
 ```cisco
@@ -857,15 +857,15 @@ show ip route
 
 ### 10.3 Teknologi yang Diimplementasikan
 
-1. ✅ **VLSM** - Variable Length Subnet Masking (Gedung Utama)
-2. ✅ **CIDR** - Classless Inter-Domain Routing (ARA Tech)
-3. ✅ **VLAN** - Virtual Local Area Network
-4. ✅ **Router-on-a-Stick** - Inter-VLAN routing
-5. ✅ **DHCP** - Dynamic Host Configuration Protocol
-6. ✅ **Static Routing** - Manual route configuration
-7. ✅ **OSPF** - Open Shortest Path First (Dynamic routing)
-8. ✅ **NAT Overload (PAT)** - Port Address Translation
-9. ✅ **GRE Tunnel** - Generic Routing Encapsulation
+1. **VLSM** - Variable Length Subnet Masking (Gedung Utama)
+2. **CIDR** - Classless Inter-Domain Routing (ARA Tech)
+3. **VLAN** - Virtual Local Area Network
+4. **Router-on-a-Stick** - Inter-VLAN routing
+5. **DHCP** - Dynamic Host Configuration Protocol
+6. **Static Routing** - Manual route configuration
+7. **OSPF** - Open Shortest Path First (Dynamic routing)
+8. **NAT Overload (PAT)** - Port Address Translation
+9. **GRE Tunnel** - Generic Routing Encapsulation
 
 ---
 
