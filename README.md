@@ -852,22 +852,19 @@ ip route 10.0.0.0 255.255.252.0 10.10.10.1
 
 <img width="704" height="201" alt="image" src="https://github.com/user-attachments/assets/d5df27f3-384d-4d80-9cfe-5b5dae75dc42" />
 
-
 <img width="771" height="489" alt="Image" src="https://github.com/user-attachments/assets/9020fbe9-4740-4df1-894a-44d85bb868ce" />
 
-Membuktikan PC Client bisa secara langsung melakukan ping ke 8.8.8.8
+> Membuktikan PC Client bisa secara langsung melakukan ping ke 8.8.8.8
 
 ### 9.8 Testing GRE Tunnel
-- Status Tunnel0 (up/up) di kedua router
 - Ping antar router melalui tunnel (10.10.10.1 ↔ 10.10.10.2)
-- PC SDM (Gedung Utama) → PC Regional (Cabang)
-- PC Regional (Cabang) → PC SDM (Gedung Utama)
+- Ping End-to-End
 
-<img width="620" height="401" alt="Image" src="https://github.com/user-attachments/assets/6e9655a9-aa9d-4cea-a3ee-99b2030a32c5" />
+<img width="712" height="188" alt="image" src="https://github.com/user-attachments/assets/960e80b2-a4fe-4d4d-9af0-738c70ffc56f" />
 
-Terlihat pada hop ke-2, paket melewati IP 10.10.10.2. Ini adalah IP Address interface Tunnel pada Router Cabang.
+<img width="575" height="289" alt="image" src="https://github.com/user-attachments/assets/c8a825cf-6054-426e-a96d-fdf627d54c4d" />
 
-> *Screenshot detail dapat dilihat pada file [Source 2.pdf](https://github.com/RutherfordiumEnjoyer/FP-Jarkom-ARA-Network-Design-Kel5/raw/main/Source%202.pdf)*
+> Ping sukses dari Router ke Router menggunakan IP Tunnel (10.10.10.x) membuktikan tunnel interface aktif. Ping antar PC membuktikan trafik user berhasil dirutekan melalui tunnel tersebut.
 
 ### 9.9 Verifikasi Routing Table
 ```cisco
@@ -878,6 +875,96 @@ show ip route
 # - O (OSPF routes) - route yang dipelajari dari router lain
 # - S (Static routes) - route manual
 # - C (Connected) - network yang langsung terhubung
+```
+Gedung ARA Tech:
+```
+C       10.0.0.0/25 is directly connected, GigabitEthernet0/0.100
+L       10.0.0.1/32 is directly connected, GigabitEthernet0/0.100
+C       10.0.0.128/25 is directly connected, GigabitEthernet0/0.200
+L       10.0.0.129/32 is directly connected, GigabitEthernet0/0.200
+C       10.0.1.0/25 is directly connected, GigabitEthernet0/0.300
+L       10.0.1.1/32 is directly connected, GigabitEthernet0/0.300
+C       10.0.1.128/25 is directly connected, GigabitEthernet0/0.400
+L       10.0.1.129/32 is directly connected, GigabitEthernet0/0.400
+C       10.0.2.0/26 is directly connected, GigabitEthernet0/0.500
+L       10.0.2.1/32 is directly connected, GigabitEthernet0/0.500
+     172.16.0.0/16 is variably subnetted, 6 subnets, 5 masks
+O       172.16.0.0/23 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+O       172.16.2.0/23 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+O       172.16.4.0/25 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+O       172.16.4.128/26 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+O       172.16.4.192/27 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+O       172.16.4.224/28 [110/65] via 192.168.0.2, 01:55:25, Serial0/3/0
+     192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.0.0/30 is directly connected, Serial0/3/0
+L       192.168.0.1/32 is directly connected, Serial0/3/0
+     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.1.0/30 is directly connected, Serial0/3/1
+L       192.168.1.1/32 is directly connected, Serial0/3/1
+     192.168.10.0/26 is subnetted, 1 subnets
+O       192.168.10.0/26 [110/65] via 192.168.1.2, 01:55:25, Serial0/3/1
+S*   0.0.0.0/0 [1/0] via 192.168.0.2
+```
+Gedung Utama:
+```
+O       10.0.0.0/25 [110/65] via 192.168.0.1, 01:55:10, Serial0/3/0
+O       10.0.0.128/25 [110/65] via 192.168.0.1, 01:55:10, Serial0/3/0
+O       10.0.1.0/25 [110/65] via 192.168.0.1, 01:55:10, Serial0/3/0
+O       10.0.1.128/25 [110/65] via 192.168.0.1, 01:55:10, Serial0/3/0
+O       10.0.2.0/26 [110/65] via 192.168.0.1, 01:55:10, Serial0/3/0
+C       10.10.10.0/30 is directly connected, Tunnel0
+L       10.10.10.1/32 is directly connected, Tunnel0
+     172.16.0.0/16 is variably subnetted, 12 subnets, 6 masks
+C       172.16.0.0/23 is directly connected, GigabitEthernet0/0.60
+L       172.16.0.1/32 is directly connected, GigabitEthernet0/0.60
+C       172.16.2.0/23 is directly connected, GigabitEthernet0/0.20
+L       172.16.2.1/32 is directly connected, GigabitEthernet0/0.20
+C       172.16.4.0/25 is directly connected, GigabitEthernet0/0.10
+L       172.16.4.1/32 is directly connected, GigabitEthernet0/0.10
+C       172.16.4.128/26 is directly connected, GigabitEthernet0/0.30
+L       172.16.4.129/32 is directly connected, GigabitEthernet0/0.30
+C       172.16.4.192/27 is directly connected, GigabitEthernet0/0.40
+L       172.16.4.193/32 is directly connected, GigabitEthernet0/0.40
+C       172.16.4.224/28 is directly connected, GigabitEthernet0/0.50
+L       172.16.4.225/32 is directly connected, GigabitEthernet0/0.50
+     192.168.0.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.0.0/30 is directly connected, Serial0/3/0
+L       192.168.0.2/32 is directly connected, Serial0/3/0
+     192.168.1.0/30 is subnetted, 1 subnets
+O       192.168.1.0/30 [110/128] via 192.168.0.1, 01:55:10, Serial0/3/0
+     192.168.10.0/26 is subnetted, 1 subnets
+S       192.168.10.0/26 [1/0] via 10.10.10.2
+     203.0.113.0/24 is variably subnetted, 2 subnets, 2 masks
+C       203.0.113.0/30 is directly connected, Serial0/3/1
+L       203.0.113.1/32 is directly connected, Serial0/3/1
+S*   0.0.0.0/0 [1/0] via 203.0.113.2
+```
+Kantor Cabang:
+```
+O       10.0.0.0/25 [110/65] via 192.168.1.1, 01:55:56, Serial0/3/0
+O       10.0.0.128/25 [110/65] via 192.168.1.1, 01:55:56, Serial0/3/0
+O       10.0.1.0/25 [110/65] via 192.168.1.1, 01:55:56, Serial0/3/0
+O       10.0.1.128/25 [110/65] via 192.168.1.1, 01:55:56, Serial0/3/0
+O       10.0.2.0/26 [110/65] via 192.168.1.1, 01:55:56, Serial0/3/0
+C       10.10.10.0/30 is directly connected, Tunnel0
+L       10.10.10.2/32 is directly connected, Tunnel0
+     172.16.0.0/16 is variably subnetted, 7 subnets, 6 masks
+S       172.16.0.0/21 [1/0] via 10.10.10.1
+S       172.16.0.0/23 [1/0] via 10.10.10.1
+S       172.16.2.0/23 [1/0] via 10.10.10.1
+S       172.16.4.0/25 [1/0] via 10.10.10.1
+O       172.16.4.128/26 [110/129] via 192.168.1.1, 01:55:46, Serial0/3/0
+O       172.16.4.192/27 [110/129] via 192.168.1.1, 01:55:46, Serial0/3/0
+O       172.16.4.224/28 [110/129] via 192.168.1.1, 01:55:46, Serial0/3/0
+     192.168.0.0/30 is subnetted, 1 subnets
+O       192.168.0.0/30 [110/128] via 192.168.1.1, 01:55:56, Serial0/3/0
+     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.1.0/30 is directly connected, Serial0/3/0
+L       192.168.1.2/32 is directly connected, Serial0/3/0
+     192.168.10.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.10.0/26 is directly connected, GigabitEthernet0/0.70
+L       192.168.10.1/32 is directly connected, GigabitEthernet0/0.70
+S*   0.0.0.0/0 [1/0] via 192.168.1.1
 ```
 
 ---
